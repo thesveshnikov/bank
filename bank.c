@@ -1,6 +1,18 @@
 #include <stdio.h>
 
 int main(void) {
-    printf("Hello, World!\n");
+    int counter = 1;
+
+    printf("Welcome to the bank!\n\n");
+
+    const char *arr[] = {"Deposit", "Withdraw", "Check Balance", "Loan"};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    printf("Available options: \n\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d. %s\n", counter, arr[i]);
+        counter++;
+    }
+
     return 0;
 }
