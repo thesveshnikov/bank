@@ -2,6 +2,10 @@
 
 int main(void) {
     int counter = 1;
+    int balance;
+
+    printf("What's is your balance? ");
+    scanf("%d", &balance);
 
     printf("Welcome to the bank!\n\n");
 
@@ -13,6 +17,7 @@ int main(void) {
         printf("%d. %s\n", counter, arr[i]);
         counter++;
     }
+    printf("\nYor balance: %d", balance);
 
     return 0;
 }
