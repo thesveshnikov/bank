@@ -1,5 +1,15 @@
 #include <stdio.h>
 
+void printMenu() {
+    const char *arr[] = {"Deposit", "Withdraw", "Check Balance", "Loan", "Exit"};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    printf("\nAvailable options:\n\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d. %s\n", i + 1, arr[i]);
+    }
+}
+
 int main(void) {
     float balance;
     int option;
@@ -12,14 +22,8 @@ int main(void) {
 
     printf("Welcome to the bank!\n\n");
 
-    const char *arr[] = {"Deposit", "Withdraw", "Check Balance", "Loan", "Exit"};
-    int n = sizeof(arr) / sizeof(arr[0]);
-
     do {
-        printf("\nAvailable options:\n\n");
-        for (int i = 0; i < n; i++) {
-            printf("%d. %s\n", i + 1, arr[i]);
-        }
+        printMenu();
 
         printf("\nYour balance: $%.2f\n\n", balance);
 
