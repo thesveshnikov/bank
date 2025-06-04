@@ -1,5 +1,14 @@
 #include <stdio.h>
 
+void selectOption(int *option);
+void printBalance(float *balance);
+void askBalance(float *balance);
+void printMenu();
+void deposit(float *balance);
+void withdraw(float *balance);
+void loan();
+void exitProgram();
+
 void selectOption(int *option) {
     printf("Select an option: ");
     scanf("%d", option);
@@ -12,7 +21,6 @@ void printBalance(float *balance) {
 void askBalance(float *balance) {
     printf("What is your balance? ");
     scanf("%f", balance);
-
     printf("Welcome to the bank!\n\n");
 }
 
@@ -26,45 +34,59 @@ void printMenu() {
     }
 }
 
+void deposit(float *balance) {
+    float depositValue;
+    printf("How much do you want to deposit? ");
+    scanf("%f", &depositValue);
+    *balance += depositValue;
+    printf("New balance: $%.2f\n", *balance);
+}
+
+void withdraw(float *balance) {
+    float withdrawValue;
+    printf("How much do you want to withdraw? ");
+    scanf("%f", &withdrawValue);
+    *balance -= withdrawValue;
+    printf("New balance: $%.2f\n", *balance);
+}
+
+void loan() {
+    float loanValue;
+    printf("What is the value of your loan? ");
+    scanf("%f", &loanValue);
+    printf("Loan request for $%.2f received.\n", loanValue);
+}
+
+void exitProgram() {
+    printf("Thank you for using the bank!\n");
+}
+
 int main(void) {
     float balance;
     int option;
-    float depositValue;
-    float withdrawValue;
-    float loanValue;
 
     askBalance(&balance);
 
     do {
         printMenu();
-
         printBalance(&balance);
-
         selectOption(&option);
 
         switch (option) {
             case 1:
-                printf("How much do you want to deposit? ");
-                scanf("%f", &depositValue);
-                balance += depositValue;
-                printf("New balance: $%.2f\n", balance);
+                deposit(&balance);
                 break;
             case 2:
-                printf("How much do you want to withdraw? ");
-                scanf("%f", &withdrawValue);
-                balance -= withdrawValue;
-                printf("New balance: $%.2f\n", balance);
+                withdraw(&balance);
                 break;
             case 3:
                 printBalance(&balance);
                 break;
             case 4:
-                printf("What is the value of your loan? ");
-                scanf("%f", &loanValue);
-                printf("Loan request for $%.2f received.\n", loanValue);
+                loan();
                 break;
             case 5:
-                printf("Thank you for using the bank!\n");
+                exitProgram();
                 break;
             default:
                 printf("Invalid option.\n");
