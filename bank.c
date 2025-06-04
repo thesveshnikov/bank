@@ -2,11 +2,14 @@
 
 int main(void) {
     int counter = 1;
-    int balance;
+    float balance;
     int option;
+    float depositValue;
+    float withdrawValue;
+    float loanValue;
 
-    printf("What's is your balance? ");
-    scanf("%d", &balance);
+    printf("What is your balance? ");
+    scanf("%f", &balance);
 
     printf("Welcome to the bank!\n\n");
 
@@ -18,23 +21,31 @@ int main(void) {
         printf("%d. %s\n", counter, arr[i]);
         counter++;
     }
-    printf("\nYor balance: $%d\n\n", balance);
+    printf("\nYour balance: $%.2f\n\n", balance);
 
     printf("Select an option: ");
     scanf("%d", &option);
 
     switch (option) {
         case 1:
-            printf("How much do you want deposit?");
+            printf("How much do you want to deposit? ");
+            scanf("%f", &depositValue);
+            balance += depositValue;
+            printf("New balance: $%.2f\n", balance);
             break;
         case 2:
-            printf("How much do you want to withdraw?\n");
+            printf("How much do you want to withdraw? ");
+            scanf("%f", &withdrawValue);
+            balance -= withdrawValue;
+            printf("New balance: $%.2f\n", balance);
             break;
         case 3:
-            printf("Your balance is %d.\n", balance);
+            printf("Your balance is $%.2f.\n", balance);
             break;
         case 4:
-            printf("What is the value of your loan?\n");
+            printf("What is the value of your loan? ");
+            scanf("%f", &loanValue);
+            printf("Loan request for $%.2f received.\n", loanValue);
             break;
         case 5:
             printf("Thank you for using the bank!\n");
