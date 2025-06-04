@@ -25,16 +25,16 @@ int main(void) {
 
     switch (option) {
         case 1:
-            printf("Thank you for using the bank #1!\n");
+            printf("How much do you want deposit?");
             break;
         case 2:
-            printf("Thank you for using the bank #2!\n");
+            printf("How much do you want to withdraw?\n");
             break;
         case 3:
-            printf("Thank you for using the bank #3!\n");
+            printf("Your balance is %d.\n", balance);
             break;
         case 4:
-            printf("Thank you for using the bank #4!\n");
+            printf("What is the value of your loan?\n");
             break;
         case 5:
             printf("Thank you for using the bank!\n");
