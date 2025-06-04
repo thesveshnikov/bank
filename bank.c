@@ -23,5 +23,22 @@ int main(void) {
     printf("Select an option: ");
     scanf("%d", &option);
 
+    switch (option) {
+        case 1:
+            printf("Thank you for using the bank #1!\n");
+            break;
+        case 2:
+            printf("Thank you for using the bank #2!\n");
+            break;
+        case 3:
+            printf("Thank you for using the bank #3!\n");
+            break;
+        case 4:
+            printf("Thank you for using the bank #4!\n");
+            break;
+        default:
+            printf("Invalid option.\n");
+    }
+
     return 0;
 }
