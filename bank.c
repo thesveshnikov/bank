@@ -1,10 +1,26 @@
 #include <stdio.h>
 
+void selectOption(int *option) {
+    printf("Select an option: ");
+    scanf("%d", option);
+}
+
+void printBalance(float *balance) {
+    printf("\nYour balance: $%.2f\n\n", *balance);
+}
+
+void askBalance(float *balance) {
+    printf("What is your balance? ");
+    scanf("%f", balance);
+
+    printf("Welcome to the bank!\n\n");
+}
+
 void printMenu() {
     const char *arr[] = {"Deposit", "Withdraw", "Check Balance", "Loan", "Exit"};
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    printf("\nAvailable options:\n\n");
+    printf("Available options:\n\n");
     for (int i = 0; i < n; i++) {
         printf("%d. %s\n", i + 1, arr[i]);
     }
@@ -17,18 +33,14 @@ int main(void) {
     float withdrawValue;
     float loanValue;
 
-    printf("What is your balance? ");
-    scanf("%f", &balance);
-
-    printf("Welcome to the bank!\n\n");
+    askBalance(&balance);
 
     do {
         printMenu();
 
-        printf("\nYour balance: $%.2f\n\n", balance);
+        printBalance(&balance);
 
-        printf("Select an option: ");
-        scanf("%d", &option);
+        selectOption(&option);
 
         switch (option) {
             case 1:
@@ -44,7 +56,7 @@ int main(void) {
                 printf("New balance: $%.2f\n", balance);
                 break;
             case 3:
-                printf("Your balance is $%.2f.\n", balance);
+                printBalance(&balance);
                 break;
             case 4:
                 printf("What is the value of your loan? ");
