@@ -10,7 +10,7 @@ int main(void) {
 
     printf("Welcome to the bank!\n\n");
 
-    const char *arr[] = {"Deposit", "Withdraw", "Check Balance", "Loan"};
+    const char *arr[] = {"Deposit", "Withdraw", "Check Balance", "Loan", "Exit"};
     int n = sizeof(arr) / sizeof(arr[0]);
 
     printf("Available options: \n\n");
@@ -35,6 +35,9 @@ int main(void) {
             break;
         case 4:
             printf("Thank you for using the bank #4!\n");
+            break;
+        case 5:
+            printf("Thank you for using the bank!\n");
             break;
         default:
             printf("Invalid option.\n");
